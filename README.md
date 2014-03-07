@@ -6,7 +6,7 @@ Spark and Cassandra.
 
 To get going, simply create the schema in a local Cassandra host.
 
-                cat schema/northpole.cql | ~/tools/cassandra/bin/cqlsh
+	        cat schema/northpole.cql | ~/tools/cassandra/bin/cqlsh
 
 Then run maven:
 
