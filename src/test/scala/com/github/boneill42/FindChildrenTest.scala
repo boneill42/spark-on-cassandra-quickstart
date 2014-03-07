@@ -12,28 +12,17 @@ import org.scalatest.junit.JUnitRunner
 import org.junit.runner.RunWith
 
 @RunWith(classOf[JUnitRunner])
-class FindChildrenTest extends FunSpec with BeforeAndAfterAll with ShouldMatchers with MustMatchers {
-
+class FindChildrenTest extends FunSpec {
   import Cql3CRDDTransformers._
-
   val sc = new SparkContext("local[1]", "castest")
-
   describe("Find All Children in IRL") {
     it("should be able find children in IRL") {
-
       val cas = CasBuilder.cql3.withColumnFamily("northpole", "children")
-
       val cqlRdd = sc.cql3Cassandra[Child](cas)
-
       val children = cqlRdd.collect().toList
       children.filter((child) => child.country.equals("IRL")).map((child) => println(child))
       sc.stop()
     }
-
-  }
-
-  override def afterAll() {
-    sc.stop()
   }
 }
 
