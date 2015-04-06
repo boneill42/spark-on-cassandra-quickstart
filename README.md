@@ -4,18 +4,14 @@ Spark on Cassandra QuickStart
 This project is meant to help people get up and running quickly with
 Spark and Cassandra.
 
-To get going, simply create the schema in a local Cassandra host.
+Get spark up and running.  You can follow this tutorial for help:
 
-	        cat schema/northpole.cql | ~/tools/cassandra/bin/cqlsh
+Build with:
+```
+mvn clean install
+```
 
-Then run maven:
-
-		mvn clean install
-
-The code is all in a single file:
-
-		./src/test/scala/com/github/boneill42/FindChildrenTest.scala
-
-Happy Sparking.
-
-
+Then submit the job to the spark cluster with:
+```
+run.sh
+```
