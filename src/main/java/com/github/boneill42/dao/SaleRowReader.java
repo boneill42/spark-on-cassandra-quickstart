@@ -1,5 +1,7 @@
 package com.github.boneill42.dao;
 
+import java.io.Serializable;
+
 import scala.Option;
 import scala.collection.Seq;
 
@@ -15,7 +17,8 @@ public class SaleRowReader extends GenericRowReader<Sale> {
     private static final long serialVersionUID = 1L;
     private static RowReader<Sale> reader = new SaleRowReader();
 
-    public static class SaleRowReaderFactory implements RowReaderFactory<Sale>{
+    public static class SaleRowReaderFactory implements RowReaderFactory<Sale>, Serializable{
+        private static final long serialVersionUID = 1L;
         @Override
         public RowReader<Sale> rowReader(TableDef arg0, RowReaderOptions arg1) {
             return reader;

@@ -1,5 +1,7 @@
 package com.github.boneill42.dao;
 
+import java.io.Serializable;
+
 import scala.collection.Seq;
 import scala.collection.immutable.Map;
 
@@ -13,7 +15,8 @@ public class SummaryRowWriter implements RowWriter<Summary> {
     private static RowWriter<Summary> writer = new SummaryRowWriter();
 
     // Factory
-    public static class SummaryRowWriterFactory implements RowWriterFactory<Summary>{
+    public static class SummaryRowWriterFactory implements RowWriterFactory<Summary>, Serializable{
+        private static final long serialVersionUID = 1L;
         @Override
         public RowWriter<Summary> rowWriter(TableDef arg0, Seq<String> arg1, Map<String, String> arg2) {
             return writer;

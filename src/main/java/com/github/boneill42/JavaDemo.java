@@ -137,6 +137,7 @@ public class JavaDemo implements Serializable {
             @Override
             public Iterable<Tuple2<Integer, BigDecimal>> call(Tuple2<Integer, Tuple2<Sale, Product>> input) throws Exception {
                 Tuple2<Sale, Product> saleWithProduct = input._2();
+                
                 List<Tuple2<Integer, BigDecimal>> allSales = new ArrayList<>(saleWithProduct._2().getParents().size() + 1);
                 allSales.add(new Tuple2<>(saleWithProduct._1().getProduct(), saleWithProduct._1().getPrice()));
                 for (Integer parentProduct : saleWithProduct._2().getParents()) {
