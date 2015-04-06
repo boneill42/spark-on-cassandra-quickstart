@@ -1,9 +1,13 @@
-package com.github.boneill42;
+package com.github.boneill42.model;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.text.MessageFormat;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Summary {
+public class Summary implements Serializable {
+    private static final long serialVersionUID = 1L;
     private Integer product;
     private BigDecimal summary;
 
@@ -34,5 +38,12 @@ public class Summary {
     @Override
     public String toString() {
         return MessageFormat.format("Summary'{'product={0}, summary={1}'}'", product, summary);
+    }
+    
+    public static List<String> columns() {
+        List<String> columns = new ArrayList<String>();
+        columns.add("product");
+        columns.add("summary");
+        return columns;
     }
 }

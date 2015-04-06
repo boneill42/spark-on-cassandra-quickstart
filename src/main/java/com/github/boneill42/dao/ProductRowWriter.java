@@ -1,7 +1,4 @@
-package com.github.boneill42;
-
-import java.util.ArrayList;
-import java.util.List;
+package com.github.boneill42.dao;
 
 import scala.collection.Seq;
 import scala.collection.immutable.Map;
@@ -9,6 +6,7 @@ import scala.collection.immutable.Map;
 import com.datastax.spark.connector.cql.TableDef;
 import com.datastax.spark.connector.writer.RowWriter;
 import com.datastax.spark.connector.writer.RowWriterFactory;
+import com.github.boneill42.model.Product;
 
 public class ProductRowWriter implements RowWriter<Product> {
     private static final long serialVersionUID = 1L;
@@ -23,12 +21,8 @@ public class ProductRowWriter implements RowWriter<Product> {
     }
 
     @Override
-    public Seq<String> columnNames() {
-        List<String> columns = new ArrayList<String>();
-        columns.add("id");
-        columns.add("name");
-        columns.add("parents");        
-        return scala.collection.JavaConversions.asScalaBuffer(columns).toList();
+    public Seq<String> columnNames() {       
+        return scala.collection.JavaConversions.asScalaBuffer(Product.columns()).toList();
     }
 
     @Override
@@ -37,5 +31,4 @@ public class ProductRowWriter implements RowWriter<Product> {
         buffer[1] = product.getName();
         buffer[2] = product.getParents();        
     }
-    
 }

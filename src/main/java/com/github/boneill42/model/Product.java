@@ -1,7 +1,8 @@
-package com.github.boneill42;
+package com.github.boneill42.model;
 
 import java.io.Serializable;
 import java.text.MessageFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Product implements Serializable {
@@ -47,4 +48,13 @@ public class Product implements Serializable {
     public String toString() {
         return MessageFormat.format("Product'{'id={0}, name=''{1}'', parents={2}'}'", id, name, parents);
     }
+    
+    public static List<String> columns() {
+        List<String> columns = new ArrayList<String>();
+        columns.add("id");
+        columns.add("name");
+        columns.add("parents"); 
+        return columns;
+    }
+
 }
