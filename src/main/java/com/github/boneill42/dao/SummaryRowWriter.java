@@ -2,13 +2,14 @@ package com.github.boneill42.dao;
 
 import java.io.Serializable;
 
-import scala.collection.Seq;
-import scala.collection.immutable.Map;
-
+import com.datastax.spark.connector.ColumnRef;
 import com.datastax.spark.connector.cql.TableDef;
 import com.datastax.spark.connector.writer.RowWriter;
 import com.datastax.spark.connector.writer.RowWriterFactory;
 import com.github.boneill42.model.Summary;
+
+import scala.collection.IndexedSeq;
+import scala.collection.Seq;
 
 public class SummaryRowWriter implements RowWriter<Summary> {
     private static final long serialVersionUID = 1L;
@@ -17,10 +18,11 @@ public class SummaryRowWriter implements RowWriter<Summary> {
     // Factory
     public static class SummaryRowWriterFactory implements RowWriterFactory<Summary>, Serializable{
         private static final long serialVersionUID = 1L;
+
         @Override
-        public RowWriter<Summary> rowWriter(TableDef arg0, Seq<String> arg1, Map<String, String> arg2) {
+        public RowWriter<Summary> rowWriter(TableDef arg0, IndexedSeq<ColumnRef> arg1) {
             return writer;
-        }        
+        }
     }
 
     @Override
