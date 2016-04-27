@@ -6,6 +6,8 @@ Spark and Cassandra.
 
 Get spark up and running.  You can follow this tutorial for help:
 
+http://brianoneill.blogspot.com/2015/04/holy-momentum-batman-spark-and.html
+
 Build with:
 ```
 mvn clean install

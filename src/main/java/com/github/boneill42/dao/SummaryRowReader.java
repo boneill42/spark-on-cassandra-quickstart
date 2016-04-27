@@ -2,7 +2,6 @@ package com.github.boneill42.dao;
 
 import java.io.Serializable;
 
-import com.datastax.driver.core.ProtocolVersion;
 import com.datastax.driver.core.Row;
 import com.datastax.spark.connector.ColumnRef;
 import com.datastax.spark.connector.cql.TableDef;
@@ -31,7 +30,7 @@ public class SummaryRowReader extends GenericRowReader<Summary> {
     }
 
     @Override
-    public Summary read(Row row, String[] columnNames, ProtocolVersion protocolVersion) {
+    public Summary read(Row row, String[] columnNames) {
         Summary summary = new Summary();
         summary.setProduct(row.getInt(0));
         summary.setSummary(row.getDecimal(1));

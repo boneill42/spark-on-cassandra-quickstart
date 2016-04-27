@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.datastax.spark:spark-cassandra-connector-java_2.10:1.6.0-M1">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/datastax/spark/spark-cassandra-connector-java_2.10/1.6.0-M1/spark-cassandra-connector-java_2.10-1.6.0-M1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/datastax/spark/spark-cassandra-connector-java_2.10/1.6.0-M1/spark-cassandra-connector-java_2.10-1.6.0-M1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/datastax/spark/spark-cassandra-connector-java_2.10/1.6.0-M1/spark-cassandra-connector-java_2.10-1.6.0-M1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

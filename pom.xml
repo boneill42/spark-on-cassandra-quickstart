@@ -36,20 +36,20 @@
 		</dependency>
 		<dependency>
 			<groupId>com.datastax.spark</groupId>
-			<artifactId>spark-cassandra-connector-java_2.11</artifactId>
-			<version>1.4.0</version>
+			<artifactId>spark-cassandra-connector-java_2.10</artifactId>
+			<version>1.6.0-M1</version>
 		</dependency>
 
 		<!--Spark -->
 		<dependency>
 			<groupId>org.apache.spark</groupId>
-			<artifactId>spark-core_2.11</artifactId>
-			<version>1.4.0</version>
+			<artifactId>spark-core_2.10</artifactId>
+			<version>1.6.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.spark</groupId>
-			<artifactId>spark-streaming_2.11</artifactId>
-			<version>1.4.0</version>
+			<artifactId>spark-streaming_2.10</artifactId>
+			<version>1.6.1</version>
 		</dependency>
 	</dependencies>
 

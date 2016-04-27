@@ -2,7 +2,6 @@ package com.github.boneill42.dao;
 
 import java.io.Serializable;
 
-import com.datastax.driver.core.ProtocolVersion;
 import com.datastax.driver.core.Row;
 import com.datastax.spark.connector.ColumnRef;
 import com.datastax.spark.connector.cql.TableDef;
@@ -31,7 +30,7 @@ public class ProductRowReader extends GenericRowReader<Product> {
     }
 
     @Override
-    public Product read(Row row, String[] columnNames, ProtocolVersion protocolVersion) {
+    public Product read(Row row, String[] columnNames) {
         Product product = new Product();        
         product.setId(row.getInt(0));
         product.setName(row.getString(1));
