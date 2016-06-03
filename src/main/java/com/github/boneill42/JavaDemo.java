@@ -37,6 +37,8 @@ import com.google.common.base.Optional;
 
 public class JavaDemo implements Serializable {
     private static final long serialVersionUID = 1L;
+    public static final String JAVA_API = "java_api";
+    public static final String PRODUCTS = "products";
 
     private transient SparkConf conf;
     
@@ -89,7 +91,7 @@ public class JavaDemo implements Serializable {
 
         JavaRDD<Product> productsRDD = sc.parallelize(products);
         
-        javaFunctions(productsRDD).writerBuilder("java_api", "products", productWriter).saveToCassandra();
+        javaFunctions(productsRDD).writerBuilder(JAVA_API, PRODUCTS, productWriter).saveToCassandra();
 
         JavaRDD<Sale> salesRDD = productsRDD.filter(new Function<Product, Boolean>() {
             @Override
@@ -108,13 +110,13 @@ public class JavaDemo implements Serializable {
             }
         });
         
-        javaFunctions(salesRDD).writerBuilder("java_api", "sales", saleWriter).saveToCassandra();
+        javaFunctions(salesRDD).writerBuilder(JAVA_API, "sales", saleWriter).saveToCassandra();
     }
 
     @SuppressWarnings("serial")
     private void compute(JavaSparkContext sc) {
         JavaPairRDD<Integer, Product> productsRDD = javaFunctions(sc)
-                .cassandraTable("java_api", "products", productReader)
+                .cassandraTable(JAVA_API, PRODUCTS, productReader)
                 .keyBy(new Function<Product, Integer>() {
                     @Override
                     public Integer call(Product product) throws Exception {
@@ -123,7 +125,7 @@ public class JavaDemo implements Serializable {
                 });
 
         JavaPairRDD<Integer, Sale> salesRDD = javaFunctions(sc)
-                .cassandraTable("java_api", "sales", saleReader)
+                .cassandraTable(JAVA_API, "sales", saleReader)
                 .keyBy(new Function<Sale, Integer>() {
                     @Override
                     public Integer call(Sale sale) throws Exception {
@@ -159,13 +161,13 @@ public class JavaDemo implements Serializable {
             }
         });
 
-        javaFunctions(summariesRDD).writerBuilder("java_api", "summaries", summaryWriter).saveToCassandra();
+        javaFunctions(summariesRDD).writerBuilder(JAVA_API, "summaries", summaryWriter).saveToCassandra();
     }
 
     @SuppressWarnings("serial")
     private void showResults(JavaSparkContext sc) {
         JavaPairRDD<Integer, Summary> summariesRdd = javaFunctions(sc)
-                .cassandraTable("java_api", "summaries", summaryReader)
+                .cassandraTable(JAVA_API, "summaries", summaryReader)
                 .keyBy(new Function<Summary, Integer>() {
                     @Override
                     public Integer call(Summary summary) throws Exception {
@@ -174,7 +176,7 @@ public class JavaDemo implements Serializable {
                 });
 
         JavaPairRDD<Integer, Product> productsRdd = javaFunctions(sc)
-                .cassandraTable("java_api", "products", productReader)
+                .cassandraTable(JAVA_API, PRODUCTS, productReader)
                 .keyBy(new Function<Product, Integer>() {
                     @Override
                     public Integer call(Product product) throws Exception {
