@@ -52,7 +52,7 @@ public class Sale implements Serializable {
     }
     
     public static List<String> columns() {
-        List<String> columns = new ArrayList<String>();
+        List<String> columns = new ArrayList<>();
         columns.add("id");
         columns.add("product");
         columns.add("price");

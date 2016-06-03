@@ -41,7 +41,7 @@ public class Summary implements Serializable {
     }
     
     public static List<String> columns() {
-        List<String> columns = new ArrayList<String>();
+        List<String> columns = new ArrayList<>();
         columns.add("product");
         columns.add("summary");
         return columns;
